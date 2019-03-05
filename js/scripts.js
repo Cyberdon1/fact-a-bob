@@ -1,29 +1,29 @@
-
-var leapYear = function(year) {
-  if (year % 100 === 0 && year % 400 === 0) {
-    return true
-  } else if (year % 100 === 0) {
-    return false
-  } else if (year % 4 === 0) {
-    return true
-  } else {
-    return false
+//var number = 5
+var total = 1
+var factorial = function(number) {
+  for (i = number; i > 0; i -= 1) {
+    total *= i;
+    //console.log(total);
   }
+return total
 };
+//factorial(number);
+
+
+
+
+
+
 
 $(document).ready(function() {
-  $("form#leap-year").submit(function(event) {
+  $("form#factorial").submit(function(event) {
     event.preventDefault();
-    var year = parseInt($("input#year").val());
-    var result = leapYear(year);
+    //debugger;
+    var number = parseInt($("input#number").val());
+    var result = factorial(number);
+    $("#result").text(result);
 
-    $(".year").text(year);
 
-    if (!result) {                 // same as writing if (result === false)
-      $(".not").text("not");
-    } else {
-      $(".not").text("");
-    }
 
     $("#result").show();
   });
